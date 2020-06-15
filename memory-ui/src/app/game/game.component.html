@@ -1,0 +1,29 @@
+<button (click)="newEasyGame()" mat-raised-button color="primary">Start New Game (Easy)</button>
+<button (click)="newMediumGame()" mat-raised-button color="primary">Start New Game (Medium)</button>
+<button (click)="newHardGame()" mat-raised-button color="primary">Start New Game (Hard)</button>
+
+<button (click)="loadGame()" mat-stroked-button color="primary">Load Latest Saved Game</button>
+<button (click)="saveGame()" mat-stroked-button color="primary">Save Current Game</button>
+
+<p>Current Score: {{currentScore}}</p>
+ 
+<mat-grid-list cols="2" rowHeight="2:1" *ngIf="gameSize==4">
+  <mat-grid-tile *ngFor="let card of gameState.cards; let i=index">
+	  <app-card (clickedEvent)="receiveClickEvent($event)" [cardNumber]="i" [hiddenValue]="hiddenValues[i]" 
+	  [shownValue]="shownValues[i]" [isDisabled]="(isDisabled[i] || !stillInPlay[i])"></app-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="4" rowHeight="2:1" *ngIf="gameSize==16">
+  <mat-grid-tile *ngFor="let card of gameState.cards; let i=index">
+	  <app-card (clickedEvent)="receiveClickEvent($event)" [cardNumber]="i" [hiddenValue]="hiddenValues[i]" 
+	  [shownValue]="shownValues[i]" [isDisabled]="(isDisabled[i] || !stillInPlay[i])"></app-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-grid-list cols="6" rowHeight="2:1" *ngIf="gameSize==36">
+  <mat-grid-tile *ngFor="let card of gameState.cards; let i=index">
+	  <app-card (clickedEvent)="receiveClickEvent($event)" [cardNumber]="i" [hiddenValue]="hiddenValues[i]" 
+	  [shownValue]="shownValues[i]" [isDisabled]="(isDisabled[i] || !stillInPlay[i])"></app-card>
+  </mat-grid-tile>
+</mat-grid-list>
