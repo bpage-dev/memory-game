@@ -11,7 +11,7 @@ Back End
 * Spring Boot 2.4
 
 What I would do next:
-* Refactor 'GameState' object to be cleaner and without redundancy
+* Fix mid-turn bug (not saving/loading everything needed to save & load mid turn)
 * Refactor game.component.ts to contain less logic, and condense similar logic lanes (eg different difficulties)
 * Make the game's buttons and end-game popup prettier
 * Implement a high(low) scores page
