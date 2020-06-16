@@ -1,12 +1,10 @@
 package com.ben.memory.service;
 
 import com.ben.memory.dao.GameDao;
-import com.ben.memory.model.Card;
 import com.ben.memory.model.GameState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -27,15 +25,15 @@ public class GameService {
     public void createNewGameState(int gameSize) {
         // create game state based on user input
         GameState gameState = new GameState(gameSize);
-        gameState.setCards(generateNewCards(gameSize));
+        gameState.setHiddenValues(generateNewCards(gameSize));
         gameState.setScore(0);
         gameState.gameSize = gameSize;
-        System.out.println(gameState.getCards().get(0).getHiddenValue());
+        System.out.println(gameState.getHiddenValues());
         // save new gamestate to "database" using dao
         gameDao.setGameState(gameState);
     }
 
-    private List<Card> generateNewCards(int gameSize) {
+    private Integer[] generateNewCards(int gameSize) {
         // Create list of hiddenValues
         List<Integer> hiddenValues = new ArrayList<>(gameSize);
         int maxValue = gameSize / 2;
@@ -62,14 +60,10 @@ public class GameService {
             hiddenValues.set(randomIndex, tempValue);
         }
 
-        // Assign hiddenValues to new cards
-        List<Card> newCards = new ArrayList<Card>(gameSize);
-        for (int i = 0; i < gameSize; i++) {
-            newCards.add(new Card(hiddenValues.get(i)));
-            System.out.println("Setting card value " + i + " to " + hiddenValues.get(i));
-        }
+        Integer[] hiddenValuesArray = new Integer[hiddenValues.size()];
+        hiddenValuesArray = hiddenValues.toArray(hiddenValuesArray);
 
-        return newCards;
+        return hiddenValuesArray;
     }
 
 }

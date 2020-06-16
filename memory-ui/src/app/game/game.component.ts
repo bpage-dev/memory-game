@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { Card } from '../card.model';
 import { JsonpClientBackend } from '@angular/common/http';
 import { CheckboxControlValueAccessor } from '@angular/forms';
 import { GameState } from '../game-state.model';
@@ -106,8 +105,8 @@ export class GameComponent implements OnInit {
     .subscribe(cards => {
       this.gameSize = 4;
       this.gameState = cards;
-      for (let i = 0; i < this.gameState.cards.length; i++) {
-        this.hiddenValues[i] = this.gameState.cards[i].hiddenValue;
+      for (let i = 0; i < this.gameState.hiddenValues.length; i++) {
+        this.hiddenValues[i] = this.gameState.hiddenValues[i];
         this.shownValues[i] = '?';
         this.isDisabled[i] = false;
         this.stillInPlay[i] = true;
@@ -123,8 +122,8 @@ export class GameComponent implements OnInit {
     .subscribe(cards => {
       this.gameSize = 16;
       this.gameState = cards;
-      for (let i = 0; i < this.gameState.cards.length; i++) {
-        this.hiddenValues[i] = this.gameState.cards[i].hiddenValue;
+      for (let i = 0; i < this.gameState.hiddenValues.length; i++) {
+        this.hiddenValues[i] = this.gameState.hiddenValues[i];
         this.shownValues[i] = '?';
         this.isDisabled[i] = false;
         this.stillInPlay[i] = true;
@@ -140,8 +139,8 @@ export class GameComponent implements OnInit {
     .subscribe(cards => {
       this.gameSize = 36;
       this.gameState = cards;
-      for (let i = 0; i < this.gameState.cards.length; i++) {
-        this.hiddenValues[i] = this.gameState.cards[i].hiddenValue;
+      for (let i = 0; i < this.gameState.hiddenValues.length; i++) {
+        this.hiddenValues[i] = this.gameState.hiddenValues[i];
         this.shownValues[i] = '?';
         this.isDisabled[i] = false;
         this.stillInPlay[i] = true;

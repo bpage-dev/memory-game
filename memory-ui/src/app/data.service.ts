@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Card } from './card.model';
 import { HttpClient } from '@angular/common/http';
 import { GameState } from './game-state.model';
 
@@ -7,8 +6,6 @@ import { GameState } from './game-state.model';
   providedIn: 'root'
 })
 export class DataService {
-
-  cards: Card[];
 
   constructor(private http: HttpClient) { }
 
