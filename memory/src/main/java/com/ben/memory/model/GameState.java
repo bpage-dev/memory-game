@@ -7,9 +7,8 @@ import java.util.List;
 @Component
 public class GameState {
     private int score;
-    private List<Card> cards;
     public int gameSize;
-    public Integer[] hiddenValues;
+    private Integer[] hiddenValues;
     public String[] shownValues;
     public Boolean[] isDisabled;
     public Boolean[] stillInPlay;
@@ -36,14 +35,11 @@ public class GameState {
         this.score = score;
     }
 
-    public List<Card> getCards() {
-        return cards;
+    public Integer[] getHiddenValues() {
+        return hiddenValues;
     }
 
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
-        for (int i = 0; i < gameSize; i++) {
-            this.hiddenValues[i] = cards.get(i).getHiddenValue();
-        }
+    public void setHiddenValues(Integer[] hiddenValues) {
+        this.hiddenValues = hiddenValues;
     }
 }
