@@ -2,10 +2,8 @@
 #### Created by Ben Page
 
 I am using:
-Front End
 * Angular: 9.1.11
 * Node v12.18.0
-Back End
 * JDK 1.8
 * Apache Maven 3.6.3
 * Spring Boot 2.4
